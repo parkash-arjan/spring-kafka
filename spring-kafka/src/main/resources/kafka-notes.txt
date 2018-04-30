@@ -1,0 +1,17 @@
+kafka-installation directory
+C:\kafka\kafka_2.12-1.1.0
+
+Start Zoo-Keeper
+.\bin\windows\zookeeper-server-start.bat   .\config\zookeeper.properties
+
+Start kafka
+.\bin\windows\kafka-server-start.bat   .\config\server.properties
+
+Create Kafka Topic
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic first-kafka-topic
+
+Producer to send message to Topic
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic first-kafka-topic Hello Kafka Topic
+
+Consumer to consume message
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first-kafka-topic  --from-beginning
